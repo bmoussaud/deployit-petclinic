@@ -7,7 +7,7 @@
     <artifactId>deployit-petclinic-parent</artifactId>
     <version>1.0</version>
 	</parent>
-	<artifactId>deployit-petclinic</artifactId>
+	<artifactId>deployit-petclinic-weblogic</artifactId>
 	<packaging>dar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>PetClinic Deployit DAR</name>
@@ -75,6 +75,8 @@
 							<url>jdbc:mysql://localhost/petclinic</url>
 							<username>{{DB_USERNAME}}</username>
 							<password>{{DB_PASSWORD}}</password>
+							<JDBCConnectionPoolParams_InitialCapacity>0</JDBCConnectionPoolParams_InitialCapacity>
+						        <JDBCConnectionPoolParams_MaxCapacity>1</JDBCConnectionPoolParams_MaxCapacity>
 						</deployable>
 					</deployables>
 

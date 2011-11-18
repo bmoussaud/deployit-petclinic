@@ -17,7 +17,7 @@
 			<plugin>
 				<groupId>com.xebialabs.deployit</groupId>
 				<artifactId>maven-deployit-plugin</artifactId>
-				<version>3.5.0</version>
+				<version>3.6.0-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<executions>
 					<execution>
@@ -48,35 +48,8 @@
 						<deployable>
 							<name>petclinic</name>
 							<type>jee.War</type>
-              <groupId>com.xebialabs.deployit.demos</groupId>
+						        <groupId>com.xebialabs.deployit.demos</groupId>
 							<artifactId>PetClinic</artifactId>
-						</deployable>
-						<deployable>
-							<name>petclinic-backend</name>
-							<type>jee.War</type>
-              <groupId>com.xebialabs.deployit.demos</groupId>
-							<artifactId>PetClinic-Backend</artifactId>
-						</deployable>
-						<deployable>
-							<type>file.Archive</type>
-							<groupId>mysql</groupId>
-							<artifactId>mysql-connector-java</artifactId>
-						</deployable>
-						<deployable>
-							<name>configuration</name>
-							<type>file.Folder</type>
-							<location>config</location>
-						</deployable>
-						<deployable>
-							<name>petclinicDS</name>
-							<type>wls.DataSourceSpec</type>
-							<jndiNames>jndi/toto</jndiNames>
-							<driverName>com.mysql.jdbc.Driver</driverName>
-							<url>jdbc:mysql://localhost/petclinic</url>
-							<username>{{DB_USERNAME}}</username>
-							<password>{{DB_PASSWORD}}</password>
-							<JDBCConnectionPoolParams_InitialCapacity>0</JDBCConnectionPoolParams_InitialCapacity>
-						        <JDBCConnectionPoolParams_MaxCapacity>1</JDBCConnectionPoolParams_MaxCapacity>
 						</deployable>
 					</deployables>
 
@@ -115,7 +88,7 @@
     <dependency>
       <groupId>com.xebialabs.deployit.demos</groupId>
 			<artifactId>PetClinic</artifactId>
-			<version>1.0</version>
+			<version>1.1</version>
 			<type>war</type>
 			<scope>provided</scope>
 		</dependency>

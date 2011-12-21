@@ -46,11 +46,56 @@
 					<serverAddress>localhost</serverAddress>
 					<deployables>
 						<deployable>
-							<name>petclinic</name>
+							<name>petclinic.war</name>
 							<type>jee.War</type>
 							<groupId>com.xebialabs.deployit.demos</groupId>
 							<artifactId>PetClinic</artifactId>
 						</deployable>
+						<deployable>
+							<name>petclinic-backend.war</name>
+							<type>jee.War</type>
+							<groupId>com.xebialabs.deployit.demos</groupId>
+							<artifactId>PetClinic-Backend</artifactId>
+						</deployable>
+						<deployable>
+							<type>file.Archive</type>
+							<groupId>mysql</groupId>
+							<artifactId>mysql-connector-java</artifactId>
+						</deployable>
+						<deployable>
+							<name>configuration</name>
+							<type>file.Folder</type>
+							<location>config</location>
+						</deployable>
+						<deployable>
+							<name>sql</name>
+							<type>sql.SqlScripts</type>
+							<location>sql</location>
+						</deployable>
+						<deployable>
+							<name>petQCF</name>
+							<type>wls.ConnectionFactorySpec</type>
+							<jndiName>jms/petQCf</jndiName>
+							<jmsModuleName>{{JMS_MODULE_NAME}}</jmsModuleName>
+						</deployable>
+						<deployable>
+							<name>petQueue</name>
+							<type>wls.QueueSpec</type>
+							<jndiName>jms/petQ</jndiName>
+							<jmsModuleName>{{JMS_MODULE_NAME}}</jmsModuleName>
+						</deployable>
+						<deployable>
+							<name>petclinicDS</name>
+							<type>wls.DataSourceSpec</type>
+							<jndiNames>jndi/petclinicDS</jndiNames>
+							<driverName>com.mysql.jdbc.Driver</driverName>
+							<url>jdbc:mysql://localhost/petclinic</url>
+							<username>{{DB_USERNAME}}</username>
+							<password>{{DB_PASSWORD}}</password>
+							<JDBCConnectionPoolParams_InitialCapacity>0</JDBCConnectionPoolParams_InitialCapacity>
+							<JDBCConnectionPoolParams_MaxCapacity>1</JDBCConnectionPoolParams_MaxCapacity>
+						</deployable>
+
 					</deployables>
 
 					<environmentId>Environments/ENV</environmentId>

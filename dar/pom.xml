@@ -17,7 +17,7 @@
 			<plugin>
 				<groupId>com.xebialabs.deployit</groupId>
 				<artifactId>maven-deployit-plugin</artifactId>
-				<version>3.6.0</version>
+				<version>3.6.1-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<executions>
 					<execution>
@@ -40,7 +40,7 @@
 
 				<configuration>
 					<testMode>false</testMode>
-					<skipMode>true</skipMode>
+					<skipMode>false</skipMode>
 
 					<deletePreviouslyDeployedDar>true</deletePreviouslyDeployedDar>
 					<serverAddress>localhost</serverAddress>
@@ -98,7 +98,7 @@
 
 					</deployables>
 
-					<environmentId>Environments/ENV</environmentId>
+					<environmentId>Environments/Weblogic-Dev</environmentId>
 
 					<deployeds>
 						<deployed>
@@ -116,6 +116,12 @@
 							<id>Infrastructure/host-weblogic-vm/mysql-connector-java</id>
 							<type>file.DeployedArchive</type>
 							<targetPath>/tmp/lib1</targetPath>
+						</deployed>
+						<deployed>
+							<id>Infrastructure/mydomain/MyCluster/petclinicDS</id>
+							<type>wls.DataSource</type>
+							<username>scott</username>
+							<password>tiger</password>
 						</deployed>
 						<deployed>
 							<id>Infrastructure/mydomain/MyCluster/petclinicDS</id>

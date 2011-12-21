@@ -31,7 +31,8 @@
 		<tr>
 			<td><a href="/petclinic/index.html">Home</a></td>
 			<td align="right"><img src="/petclinic/images/springsource-logo.png"></td>
-			<td align="right">Managed by 'Deployit' : {{information}}</td>
+			<td align="right">
+				<Managed></Managed> by 'Deployit' : {{information}}</td>
 		</tr>
 	</table>
 

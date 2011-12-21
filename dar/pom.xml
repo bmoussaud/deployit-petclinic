@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com.xebialabs.deployit.demos</groupId>
-    <artifactId>deployit-petclinic-parent</artifactId>
-    <version>1.0</version>
+	<parent>
+		<groupId>com.xebialabs.deployit.demos</groupId>
+		<artifactId>deployit-petclinic-parent</artifactId>
+		<version>1.0</version>
 	</parent>
 	<artifactId>deployit-petclinic-weblogic</artifactId>
 	<packaging>dar</packaging>
@@ -17,7 +17,7 @@
 			<plugin>
 				<groupId>com.xebialabs.deployit</groupId>
 				<artifactId>maven-deployit-plugin</artifactId>
-				<version>3.6.0-SNAPSHOT</version>
+				<version>3.6.0</version>
 				<extensions>true</extensions>
 				<executions>
 					<execution>
@@ -48,12 +48,12 @@
 						<deployable>
 							<name>petclinic</name>
 							<type>jee.War</type>
-						        <groupId>com.xebialabs.deployit.demos</groupId>
+							<groupId>com.xebialabs.deployit.demos</groupId>
 							<artifactId>PetClinic</artifactId>
 						</deployable>
 					</deployables>
 
-					<environmentId>Environments/WLS-Tests</environmentId>
+					<environmentId>Environments/ENV</environmentId>
 
 					<deployeds>
 						<deployed>
@@ -85,15 +85,15 @@
 	</build>
 
 	<dependencies>
-    <dependency>
-      <groupId>com.xebialabs.deployit.demos</groupId>
+		<dependency>
+			<groupId>com.xebialabs.deployit.demos</groupId>
 			<artifactId>PetClinic</artifactId>
 			<version>1.1</version>
 			<type>war</type>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-      <groupId>com.xebialabs.deployit.demos</groupId>
+			<groupId>com.xebialabs.deployit.demos</groupId>
 			<artifactId>PetClinic-Backend</artifactId>
 			<version>1.2</version>
 			<type>war</type>

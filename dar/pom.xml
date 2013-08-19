@@ -17,7 +17,7 @@
 			<plugin>
 				<groupId>com.xebialabs.deployit</groupId>
 				<artifactId>maven-deployit-plugin</artifactId>
-				<version>3.6.1</version>
+				<version>3.8.5</version>
 				<extensions>true</extensions>
 				<executions>
 					<execution>
@@ -27,15 +27,6 @@
 							<goal>deploy</goal>
 						</goals>
 					</execution>
-					<!--
-					<execution>
-						<id>clean-id</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>clean</goal>
-						</goals>
-					</execution>
-					-->
 				</executions>
 
 				<configuration>
@@ -50,33 +41,38 @@
 							<type>jee.War</type>
 							<groupId>com.xebialabs.deployit.demos</groupId>
 							<artifactId>PetClinic</artifactId>
+							<scanPlaceholders>true</scanPlaceholders>
+
+							<tags>
+								<tag>main</tag>
+							</tags>
 						</deployable>
 						<deployable>
 							<name>petclinic-backend.war</name>
 							<type>jee.War</type>
 							<groupId>com.xebialabs.deployit.demos</groupId>
 							<artifactId>PetClinic-Backend</artifactId>
+							<tags>
+								<tag>main</tag>
+							</tags>
 						</deployable>
-						<deployable>
-							<type>file.Archive</type>
-							<groupId>mysql</groupId>
-							<artifactId>mysql-connector-java</artifactId>
-						</deployable>
+						
 						<deployable>
 							<name>configuration</name>
-							<type>file.Folder</type>
+							<type>wls.Folder</type>
 							<location>config</location>
-						</deployable>
-						<deployable>
-							<name>sql</name>
-							<type>sql.SqlScripts</type>
-							<location>sql</location>
+							<tags>
+								<tag>main</tag>
+							</tags>
 						</deployable>
 						<deployable>
 							<name>petQCF</name>
 							<type>wls.ConnectionFactorySpec</type>
 							<jndiName>jms/petQCf</jndiName>
 							<jmsModuleName>{{JMS_MODULE_NAME}}</jmsModuleName>
+							<tags>
+								<tag>main</tag>
+							</tags>
 						</deployable>
 						<deployable>
 							<name>petQueue</name>
@@ -94,42 +90,27 @@
 							<password>{{DB_PASSWORD}}</password>
 							<JDBCConnectionPoolParams_InitialCapacity>0</JDBCConnectionPoolParams_InitialCapacity>
 							<JDBCConnectionPoolParams_MaxCapacity>1</JDBCConnectionPoolParams_MaxCapacity>
+							<tags>
+								<tag>main</tag>
+							</tags>
 						</deployable>
-
+			<!--
+						<deployable>
+							<name>sql</name>
+							<type>sql.SqlScripts</type>
+							<location>sql</location>
+						</deployable>
+						<deployable>
+							<type>file.Archive</type>
+							<groupId>mysql</groupId>
+							<artifactId>mysql-connector-java</artifactId>
+						</deployable>
+						-->
+				
 					</deployables>
 
 					<environmentId>Environments/Weblogic-Dev</environmentId>
 
-					<deployeds>
-						<deployed>
-							<id>Infrastructure/host-weblogic-vm/configuration</id>
-							<type>file.DeployedFolder</type>
-							<targetPath>/tmp/conf</targetPath>
-							<placeholders>
-								<entry>
-									<k>title</k>
-									<v>Deployment From Maven</v>
-								</entry>
-							</placeholders>
-						</deployed>
-						<deployed>
-							<id>Infrastructure/host-weblogic-vm/mysql-connector-java</id>
-							<type>file.DeployedArchive</type>
-							<targetPath>/tmp/lib1</targetPath>
-						</deployed>
-						<deployed>
-							<id>Infrastructure/mydomain/MyCluster/petclinicDS</id>
-							<type>wls.DataSource</type>
-							<username>scott</username>
-							<password>tiger</password>
-						</deployed>
-						<deployed>
-							<id>Infrastructure/mydomain/MyCluster/petclinicDS</id>
-							<type>wls.DataSource</type>
-							<username>scott</username>
-							<password>tiger</password>
-						</deployed>
-					</deployeds>
 				</configuration>
 			</plugin>
 		</plugins>
